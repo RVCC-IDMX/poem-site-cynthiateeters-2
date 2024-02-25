@@ -2,15 +2,99 @@
 @use "../abstracts/variables" as var;
 @use "../base/typography" as type;
 
-body {
-  font-family: type.$font;
-  background-color: var.$bg-very-light;
-  width: min(100% - 2rem, 60ch);
-  margin-inline: auto;
-  margin-block: 4rem;
+html {
+  background-color: var.$bg-very-dark;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/casey-horner-ccnfb-cc-30-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: right bottom;
 }
 
-h1 {
-  color: var.$primary-color;
+body {
+  font-family: type.$font;
+  color: var.$primary-very-light;
+  display: grid;
+  gap: 1.25rem;
+  justify-content: center;
+  width: min(100% - 2rem, 60ch);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 2;
+  margin-inline: auto;
+  margin-block: 2rem;
+}
+
+h1,
+h2 {
   text-align: center;
+}
+
+.title {
+
+  &__heading {
+    font-size: 1.8em;
+    line-height: 1.25;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  &__subheading {
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+
+    &--by {
+      display: block;
+      font-size: 0.75em;
+    }
+
+    &--by:before,
+    &--by:after {
+      content: '~';
+    }
+  }
+}
+
+header,
+main,
+footer {
+  margin-inline: auto;
+}
+
+.rule {
+  display: block;
+  margin-block: 1.5rem;
+  border: 2px solid var.$primary-very-light;
+  margin: 1.5rem 0;
+  opacity: 0.7;
+}
+
+a,
+a:visited {
+  color: var.$primary-light;
+  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+  opacity: 0.9;
+  transition: opacity 0.7s;
+}
+
+a:hover {
+  color: var.$primary-very-light;
+  opacity: 1;
+}
+
+.poem {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer {
+  margin-block: 2rem;
+  font-size: 0.75em;
+
+  &__reference:before,
+  &__reference:after {
+    content: '~';
+  }
 }
